@@ -31,12 +31,22 @@ npm install --save-dev nuxt-headlessui-float
 ```js
 export default defineNuxtConfig({
   modules: [
-    'nuxt-headlessui-float'
+    [
+      'nuxt-headlessui-float',
+      {
+        prefix: 'Headless', // optional settings, remove to leave as the default "Headless"
+      },
+    ],
+
   ]
 })
 ```
 
-That's it! You can now use Nuxt HeadlessUi Float in your Nuxt app ✨
+### Usage
+
+You will now have the `<HeadlessFloat>` component available in your Nuxt app.
+
+See the [@headlessui-float/vue](https://www.npmjs.com/package/@headlessui-float/vue) package for documentation
 
 ## Development
 

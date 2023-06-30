@@ -29,6 +29,7 @@
   },
   "dependencies": {
     "@headlessui-float/vue": "^0.11.2",
+    "@headlessui/vue": "^1.7.14",
     "@nuxt/kit": "^3.5.2"
   },
   "devDependencies": {

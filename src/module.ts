@@ -1,19 +1,23 @@
-import { defineNuxtModule, addPlugin, createResolver } from '@nuxt/kit'
-
-// Module options TypeScript interface definition
-export interface ModuleOptions {}
+import { defineNuxtModule, addComponent } from '@nuxt/kit'
+export interface ModuleOptions {
+  prefix: string;
+}
 
 export default defineNuxtModule<ModuleOptions>({
   meta: {
     name: 'nuxt-headlessui-float',
-    configKey: 'myModule'
+    configKey: 'nuxtHeadlessUiFloat'
   },
-  // Default configuration options of the Nuxt module
-  defaults: {},
-  setup (options, nuxt) {
-    const resolver = createResolver(import.meta.url)
-
-    // Do not add the extension since the `.ts` will be transpiled to `.mjs` after `npm run prepack`
-    addPlugin(resolver.resolve('./runtime/plugin'))
+  defaults: {
+    prefix: 'Headless',
+  },
+  async setup (options) {
+    addComponent(
+      {
+        name: `${options.prefix}Float`,
+        export: 'Float',
+        filePath: '@headlessui-float/vue',
+      }
+    );
   }
 })
